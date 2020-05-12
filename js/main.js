@@ -54,6 +54,7 @@ const getData = async (url) => {
 
 const toggleModal = () => {
   modal.classList.toggle('is-open');
+  body.classList.toggle('scroll-off');
 }
 
 const toggleModalAuth = () => {
