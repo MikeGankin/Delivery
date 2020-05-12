@@ -586,6 +586,10 @@ button {
     border: 1px solid #dfdfdf;
 }
 
+.swiper-slide {
+    min-height: 360px;
+}
+
 @media (max-width: 1366px) {
     .modal-dialog {
         width: 30%;
@@ -600,7 +604,6 @@ button {
         background-size: 750px;
     }
 
-
     .kebab {
         background-position: top -5px right -93px;
         background-size: 530px;
@@ -608,7 +611,7 @@ button {
 
     .vegetables {
         background-position: top 0 right -93px;
-        background-size: 89%;
+        background-size: cover;
     }
 
     .sushi {
@@ -626,6 +629,10 @@ button {
 }
 
 @media (max-width: 992px) {
+    .swiper-slide {
+        min-height: 318px;
+    }
+
     .modal-dialog {
         width: 40%;
     }
@@ -647,7 +654,6 @@ button {
 
     .vegetables {
         background-position: top 0 right -280px;
-        background-size: cover;
     }
 
     .sushi {
@@ -671,6 +677,10 @@ button {
 }
 
 @media (max-width: 768px) {
+    .swiper-slide {
+        min-height: 272px;
+    }
+
     .modal-dialog {
         width: 55%;
     }
@@ -729,7 +739,6 @@ button {
 
     .vegetables {
         background-position: top 0 right -240px;
-        background-size: 702px;
     }
 
     .sushi {
@@ -748,6 +757,10 @@ button {
 }
 
 @media (max-width: 578px) {
+    .swiper-slide {
+        min-height: 266px;
+    }
+
     .modal-dialog {
         width: 70%;
     }
@@ -848,6 +861,14 @@ button {
 }
 
 @media (max-width: 480px) {
+    .swiper-slide {
+        min-height: 206px;
+    }
+
+    .modal-dialog {
+        width: 95%;
+    }
+
     .modal-header {
         margin-bottom: 25px;
     }
