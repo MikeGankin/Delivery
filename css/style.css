@@ -83,7 +83,6 @@ button {
     color: #fff;
 }
 
-
 .button-primary {
     background: #1890ff;
     border: 1px solid #1890ff;
@@ -835,6 +834,49 @@ button {
 }
 
 @media (max-width: 480px) {
+    .modal-header {
+        margin-bottom: 25px;
+    }
+
+    .section-heading {
+        flex-wrap: wrap;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-body--chart {
+        margin-bottom: 10px;
+    }
+
+    .modal-pricetag {
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .close-chart {
+        padding: 0;
+        position: relative;
+        top: 2px;
+        right: 0;
+    }
+
+    .food-price {
+        margin: 0 15px 10px 0;
+        font-size: 18px;
+    }
+
+    .food-row {
+        flex-wrap: wrap;
+    }
+
     .button-text {
         display: none;
     }
