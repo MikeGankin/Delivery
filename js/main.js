@@ -23,7 +23,8 @@ const cartButton = document.querySelector('#cart-button'),
       inputSearch = document.querySelector('.input-search'),
       modalBody = document.querySelector('.modal-body'),
       modalPricetag = document.querySelector('.modal-pricetag'),
-      buttonClearCart = document.querySelector('.clear-cart');
+      buttonClearCart = document.querySelector('.clear-cart'),
+      body = document.querySelector('body');
 
 let login = localStorage.getItem('gloDelivery');
 
@@ -57,7 +58,7 @@ const toggleModal = () => {
 
 const toggleModalAuth = () => {
   modalAuth.classList.toggle('is-open');
-  loginInput.style.border = '';
+  body.classList.toggle('scroll-off');
 }
 
 const focus = () => {
@@ -288,6 +289,13 @@ const changeCount = (event) => {
   saveCart();
 }
 
+const placeholderFixer = () => {
+  if(window.outerWidth < 500) {
+    inputSearch.placeholder = 'Поиск блюд и рест...'
+  }
+}
+placeholderFixer();
+
 const init = () => {
   getData('./db/partners.json').then((data) => {
     data.forEach(createCardRestaurant);
@@ -375,5 +383,3 @@ const init = () => {
 
 }
 init();
-
-
