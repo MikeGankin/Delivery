@@ -563,6 +563,8 @@ button {
     position: absolute;
     top: 10px;
     right: 10px;
+    width: 33px;
+    height: 44px;
 }
 
 .modal-body {
@@ -1159,5 +1161,11 @@ button {
 
     .label-auth span {
         margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .modal-dialog {
+        padding: 40px 23px;
     }
 }
