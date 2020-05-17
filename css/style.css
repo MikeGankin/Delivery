@@ -1167,6 +1167,24 @@ button {
     .label-auth span {
         margin-bottom: 5px;
     }
+
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 375px) {
+    .promo {
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        margin-bottom: 10px;
+    }
+
+    .input-search {
+        width: 340px;
+    }
 }
 
 @media (max-width: 320px) {
