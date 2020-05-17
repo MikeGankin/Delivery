@@ -168,9 +168,10 @@ const createCardRestaurant = (restaurant) => {
 }
 
 const createCardGood = (goods) => {
-  const { name, description, price, image, id } = goods;
+  const { id, name, description, price, image } = goods;
   const card = document.createElement('div');
-  card.className = 'card';
+  card.className = 'card card card-restaurant wow fadeInUp';
+  card.setAttribute('data-wow-delay', `0.${id.slice(-1)}s`);
   card.insertAdjacentHTML('beforeend', `
     <img src="${image}" alt="image" class="card-image"/>
     <div class="card-text">

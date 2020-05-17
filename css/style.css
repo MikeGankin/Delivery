@@ -100,6 +100,7 @@ button {
     background: #1890ff;
     border: 1px solid #1890ff;
     color: #fff;
+    transition: all ease 0.3s;
 }
 
 .button-primary {
@@ -701,7 +702,7 @@ button {
     background: #262626;
     border-radius: 5px;
     color: #ffffff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     font-size: 20px;
     line-height: 23px;
 }
@@ -771,7 +772,7 @@ button {
     }
 
     .modal-dialog {
-        width: 40%;
+        width: 45%;
     }
 
     .container {
@@ -820,7 +821,7 @@ button {
     }
 
     .modal-dialog {
-        width: 55%;
+        width: 56%;
     }
 
     .container {
@@ -909,7 +910,7 @@ button {
     }
 
     .modal-dialog {
-        width: 70%;
+        width: 74%;
     }
 
     .header {
