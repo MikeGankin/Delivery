@@ -290,13 +290,6 @@ const changeCount = (event) => {
   saveCart();
 }
 
-const placeholderFixer = () => {
-  if(window.outerWidth < 500) {
-    inputSearch.placeholder = 'Поиск блюд и рест...'
-  }
-}
-placeholderFixer();
-
 const init = () => {
   getData('./db/partners.json').then((data) => {
     data.forEach(createCardRestaurant);
