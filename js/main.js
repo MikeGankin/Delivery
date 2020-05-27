@@ -1,6 +1,9 @@
 'use strict'
 
 const cartButton = document.querySelector('#cart-button'),
+      buttonCartCounter = document.querySelector('.button-cart-counter'),
+      span = document.querySelector('.button-cart-counter span'),
+      buttonCartSvg = document.querySelector('.button-cart-svg'),
       modal = document.querySelector('.modal'),
       close = document.querySelector('.close'),
       buttonAuth = document.querySelector('.button-auth'),
@@ -83,6 +86,7 @@ const authorized = () => {
     login = null;
     cart.length = 0;
     localStorage.removeItem('gloDelivery');
+    localStorage.removeItem('login');
     buttonAuth.style.display = '';
     userName.style.display = '';
     buttonOut.style.display = '';
@@ -224,6 +228,8 @@ const addToChart = (event) => {
     const title = card.querySelector('.card-title-reg').textContent;
     const cost = card.querySelector('.card-price-bold').textContent;
     const id = buttonAddToCart.id;
+    buttonCartSvg.style.display = "none";
+    buttonCartCounter.style.display = "block";
 
     const food = cart.find((item) => {
       return item.id === id;
@@ -240,6 +246,8 @@ const addToChart = (event) => {
       });
     }
   }
+  
+  quantityOfGoods();
   
   saveCart();
 }
@@ -258,6 +266,7 @@ const renderCart = () => {
         <button class="counter-button counter-plus" data-id=${id}>+</button>
       </div>
     </div>`;
+
     modalBody.insertAdjacentHTML('afterbegin', itemCart);
   });
 
@@ -266,29 +275,42 @@ const renderCart = () => {
   }, 0);
 
   modalPricetag.textContent = totalPrice + ' ₽';
+
+  quantityOfGoods();
 }
 
 const changeCount = (event) => {
   const target = event.target;
 
   if (target.classList.contains('counter-button')) {
+    
     const food = cart.find((item) => {
       return item.id === target.dataset.id;
     });
 
     if(target.classList.contains('counter-minus')) {
       food.count--;
+
       if (food.count === 0) {
         cart.splice(cart.indexOf(food), 1)
       }
     }
 
-    if(target.classList.contains('counter-plus')) food.count++;
+    if(target.classList.contains('counter-plus')) {
+      food.count++;
+    }
 
     renderCart();    
   }
 
   saveCart();
+} 
+
+const quantityOfGoods = () => {
+  const totalGoods = cart.reduce((result, item) => {
+    return result + item.count;
+  }, 0);
+  span.textContent = totalGoods;
 }
 
 const init = () => {
@@ -303,6 +325,9 @@ const init = () => {
 
   buttonClearCart.addEventListener('click', () => {
     cart.length = 0;
+    span.textContent = '';
+    buttonCartSvg.style.display = "block";
+    buttonCartCounter.style.display = "none";
     renderCart();
   });
 

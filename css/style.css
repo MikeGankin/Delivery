@@ -5,7 +5,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    padding-top: 25px;
+    padding-top: 30px;
 }
 
 a,
@@ -60,11 +60,13 @@ button {
 .input-address {
     width: 100%;
     background-image: url(../img/icon/home.svg);
+    border-radius: 5px;
 }
 
 .input-search {
-    width: 300px;
+    width: 370px;
     background-image: url(../img/icon/search.svg);
+    border-radius: 5px;
 }
 
 .buttons {
@@ -114,6 +116,7 @@ button {
     background: #ffffff;
     border: 1px solid #d9d9d9;
     color: #595959;
+    transition: all ease 0.3s;
 }
 
 .button-icon {
@@ -141,30 +144,52 @@ button {
     background-color: #595959;
 }
 
-.button .button-cart-svg {
-    width: 24px;
-    height: 24px;
-    background-color: #595959;
-    -webkit-mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
-    mask: url("../img/icon/shopping-cart.svg") no-repeat 50% 50%;
-    background-repeat: no-repeat;
+.button-cart-counter {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #595959;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    display: none;
 }
 
-.button-primary .button-cart-svg {
-    background-color: #fff;
+.button-cart:hover .button-cart-counter {
+    border: 1px solid #ffffff;
 }
 
-.button:hover .button-cart-svg {
-    background-color: #fff;
+.button-cart-counter span {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    width: 16px;
+    height: 16px;
 }
 
-.button-primary:hover .button-cart-svg {
-    background-color: #595959;
+.button-cart-svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 11px;
+    fill: #595959;
+}
+
+.button-cart-text {
+    padding-left: 18px;
 }
 
 .button-cart {
     display: none;
     margin: 0 5px;
+    position: relative;
+}
+
+.button-cart:hover .button-cart-svg {
+    fill: #ffffff;
 }
 
 .button-out {
@@ -203,19 +228,31 @@ button {
 }
 
 .pizza {
-    background: #fff1b8 url(../img/promo/pizza.png) no-repeat top -100px right -250px / 830px
+    background: #fff1b8 url('../img/promo/pizza.png');
+    background-repeat: no-repeat;
+    background-size: 52%;
+    background-position: 141% 50%;
 }
 
 .kebab {
-    background: #D6E4FF url(../img/promo/kebab.png) no-repeat top 45px right 40px / 450px;
+    background: #D6E4FF url('../img/promo/kebab.png');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: 95% 60%;
 }
 
 .vegetables {
-    background: #FFF566 url(../img/promo/vegetables.png) no-repeat top 0 right 0 / 870px
+    background: #FFF566 url('../img/promo/vegetables.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 100% 100%;
 }
 
 .sushi {
-    background: #FFF1F0 url(../img/promo/sushi.png) no-repeat top 10px right 15px / 500px
+    background: #FFF1F0 url('../img/promo/sushi.png');
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: 95% 50%;
 }
 
 .promo-title {
@@ -392,7 +429,7 @@ button {
 }
 
 .rating {
-    background-image: url("../img/icon/rating.svg");
+    background-image: url('../img/icon/rating.svg');
     background-repeat: no-repeat;
     background-position: 0 7px;
     padding-left: 20px;
@@ -500,6 +537,11 @@ button {
     z-index: 999;
 }
 
+.modal-cart {
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
 .modal-auth {
     position: fixed;
     left: 0;
@@ -515,34 +557,40 @@ button {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    opacity: 1;
 }
 
 .modal-dialog {
-    max-width: 430px;
+    max-width: 700px;
     width: 95%;
     background: #ffffff;
     border-radius: 5px;
     margin: auto;
     padding: 40px 45px;
+    position: relative;
 }
 
 .modal-dialog-auth {
+    max-width: 420px;
     position: relative;
 }
 
 .label-auth {
     display: block;
-    margin: 30px;
+    margin: 15px 0 30px 0;
 }
 
 .label-auth input {
     width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
 }
 
 .label-auth span {
     width: 80px;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .modal-header {
@@ -569,6 +617,11 @@ button {
     font-size: 36px;
     border: none;
     background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 33px;
+    height: 44px;
 }
 
 .close-auth {
@@ -656,7 +709,7 @@ button {
 
 .counter-button:hover {
     background: #40a9ff;
-    border: 1px solid #ffffff;
+    border: 1px solid #40a9ff;
     color: #ffffff;
 }
 
@@ -695,7 +748,7 @@ button {
 }
 
 .order-button {
-    margin-right: 10px;
+    margin-right: 11px;
 }
 
 .modal-pricetag {
@@ -732,73 +785,37 @@ button {
     transform: scale(1.05);
 }
 
-@media (max-width: 1366px) {
-    .container {
-        max-width: 960px;
-    }
-
-    .pizza {
-        background-position: center right -300px;
-        background-size: 750px;
-    }
-
-    .kebab {
-        background-position: top -5px right -93px;
-        background-size: 530px;
-    }
-
-    .vegetables {
-        background-position: top 0 right -93px;
-        background-size: cover;
-    }
-
-    .sushi {
-        background-position: center right -90px;
-    }
-
-    .rating {
-        margin-right: 15px;
-    }
-
-    .category,
-    .price {
-        font-size: 14px;
-    }
-}
-
 @media (max-width: 992px) {
     .swiper-slide {
         min-height: 370px;
     }
 
     .modal-dialog {
-        width: 45%;
+        width: 70%;
     }
 
     .container {
-        max-width: 750px;
+        max-width: 90%;
     }
 
     .pizza {
-        padding: 50px;
         background-size: 500px;
         background-position: center right -200px;
     }
 
     .kebab {
-        background-position: top 55px right -100px;
+        background-position: top 50% right -100px;
         background-size: 385px;
     }
 
     .vegetables {
         background-position: top 0 right -280px;
+        background-size: cover;
     }
 
     .sushi {
-        background-position: top 30px right -175px;
+        background-position: top 50% right -70px;
     }
-
-
 
     .promo-text {
         font-size: 18px;
@@ -822,10 +839,6 @@ button {
 
     .modal-dialog {
         width: 56%;
-    }
-
-    .container {
-        max-width: 560px;
     }
 
     .footer-nav {
@@ -915,10 +928,6 @@ button {
 
     .header {
         margin-bottom: 33px;
-    }
-
-    .container {
-        width: 90%;
     }
 
     .address {
